@@ -1,0 +1,19 @@
+.btn1 {
+  color: blue;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 30px;
+  font-size: 20px;
+  box-shadow: 1px 1px 5px gray;
+}
+
+.box button {
+  color: green;
+  background-color: blue;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 30px;
+  font-size: 50px;
+  box-shadow: 1px 1px 5px gray;
+}/*# sourceMappingURL=style.css.map */
