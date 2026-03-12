@@ -1,0 +1,646 @@
+$bgCol: #0f4c75;
+$textCol: #2d2d2d;
+$size: 16px;
+
+$white: #ffffff;
+$lightBg: #f2f7ff;
+$muted: #7e8794;
+$cardShadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+$radius: 14px;
+
+@mixin flexBox($justify: center, $align: center, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@mixin buttonStyle($bg: $bgCol, $color: $white) {
+  display: inline-block;
+  background: $bg;
+  color: $color;
+  padding: 14px 32px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: $size;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+  border: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+  }
+}
+
+@mixin titleStyle($fSize, $color: $textCol) {
+  font-family: "Playfair Display", serif;
+  font-size: $fSize;
+  font-weight: 700;
+  line-height: 1.15;
+  color: $color;
+}
+
+@mixin cardStyle {
+  background: $white;
+  border-radius: $radius;
+  box-shadow: $cardShadow;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: $size;
+  color: $textCol;
+  background: $white;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 1180px;
+  max-width: calc(100% - 40px);
+  margin: 0 auto;
+}
+
+.header {
+  padding: 28px 0;
+  background: $white;
+
+  .nav {
+    @include flexBox(space-between, center, row);
+  }
+}
+
+.logo {
+  @include flexBox(flex-start, center, row);
+  gap: 10px;
+  font-weight: 700;
+  color: $textCol;
+
+  .logo-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: $bgCol;
+    color: $white;
+    @include flexBox(center, center, row);
+    font-size: 14px;
+
+    &.white {
+      background: $white;
+      color: $bgCol;
+    }
+  }
+}
+
+.menu {
+  @include flexBox(center, center, row);
+  gap: 38px;
+
+  a {
+    color: $textCol;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+
+    &:hover {
+      color: $bgCol;
+    }
+  }
+}
+
+.search-icon {
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.hero {
+  padding: 40px 0 70px;
+  background: $white;
+
+  .hero-wrapper {
+    @include flexBox(space-between, center, row);
+    gap: 40px;
+  }
+
+  .hero-text {
+    width: 48%;
+
+    .hero-badge {
+      @include flexBox(flex-start, center, row);
+      gap: 12px;
+      background: #eef5fd;
+      width: fit-content;
+      padding: 8px 16px;
+      border-radius: 30px;
+      margin-bottom: 26px;
+      font-size: 13px;
+      color: #5c6f82;
+
+      .new {
+        background: $bgCol;
+        color: $white;
+        padding: 4px 14px;
+        border-radius: 20px;
+        font-size: 12px;
+      }
+    }
+
+    h1 {
+      @include titleStyle(72px, $bgCol);
+      margin-bottom: 26px;
+    }
+
+    p {
+      font-size: 24px;
+      line-height: 1.8;
+      color: #5e6672;
+      max-width: 640px;
+      margin-bottom: 34px;
+    }
+  }
+
+  .btn-primary {
+    @include buttonStyle();
+  }
+
+  .trusted {
+    margin-top: 60px;
+
+    p {
+      font-size: 24px;
+      color: #9aa3af;
+      margin-bottom: 20px;
+    }
+
+    .brands {
+      @include flexBox(flex-start, center, row);
+      gap: 28px;
+      flex-wrap: wrap;
+
+      span {
+        font-size: 28px;
+        font-weight: 600;
+        color: #586170;
+      }
+    }
+  }
+
+  .hero-image {
+    width: 46%;
+    position: relative;
+    min-height: 640px;
+    @include flexBox(center, center, row);
+
+    .circle-bg {
+      position: absolute;
+      width: 620px;
+      height: 620px;
+      border-radius: 50%;
+      background: #e8f1fb;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+    }
+
+    img {
+      width: 430px;
+      position: relative;
+      z-index: 2;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+
+    .person-card {
+      position: absolute;
+      bottom: 30px;
+      left: 60px;
+      z-index: 3;
+      background: $white;
+      width: 280px;
+      text-align: center;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: $cardShadow;
+
+      h4 {
+        font-size: 26px;
+        margin-bottom: 8px;
+        color: #3b4958;
+      }
+
+      p {
+        color: #8a93a2;
+      }
+    }
+  }
+}
+
+.services {
+  background: $lightBg;
+  padding: 95px 0;
+
+  .services-wrapper {
+    @include flexBox(space-between, flex-start, row);
+    gap: 60px;
+  }
+
+  .services-text {
+    width: 38%;
+
+    h2 {
+      @include titleStyle(50px);
+      margin-bottom: 26px;
+    }
+
+    p {
+      color: $muted;
+      font-size: 25px;
+      line-height: 1.9;
+      max-width: 420px;
+    }
+  }
+
+  .services-cards {
+    width: 58%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+
+  .service-card {
+    @include cardStyle;
+    padding: 28px;
+    min-height: 230px;
+
+    .icon {
+      font-size: 28px;
+      margin-bottom: 18px;
+      color: $bgCol;
+    }
+
+    h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 32px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: $textCol;
+    }
+
+    p {
+      font-size: 18px;
+      color: #8b95a3;
+      line-height: 1.8;
+    }
+  }
+}
+
+.stats {
+  background: $bgCol;
+  color: $white;
+  padding: 75px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  h2 {
+    @include titleStyle(52px, $white);
+    margin-bottom: 14px;
+  }
+
+  .stats-subtitle {
+    color: #d3e1ef;
+    margin-bottom: 50px;
+    font-size: 20px;
+  }
+
+  .stats-grid {
+    @include flexBox(space-around, center, row);
+    gap: 30px;
+  }
+
+  .stat-item {
+    h3 {
+      font-size: 58px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 20px;
+      color: #dde7f1;
+    }
+  }
+}
+
+.testimonials {
+  background: $lightBg;
+  padding: 80px 0 95px;
+
+  h2 {
+    @include titleStyle(52px);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .testimonial-card {
+    @include cardStyle;
+    padding: 34px 30px;
+    text-align: center;
+
+    h3 {
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    p {
+      color: $muted;
+      line-height: 1.9;
+      font-size: 17px;
+      margin-bottom: 24px;
+    }
+
+    .user {
+      @include flexBox(center, center, row);
+      gap: 14px;
+
+      img {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      h4 {
+        font-size: 16px;
+        text-align: left;
+      }
+
+      span {
+        color: $muted;
+        font-size: 13px;
+        display: block;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.questions {
+  background: $white;
+  padding: 80px 0;
+
+  .questions-wrapper {
+    @include flexBox(space-between, center, row);
+    gap: 50px;
+  }
+
+  .questions-text {
+    width: 58%;
+
+    h2 {
+      @include titleStyle(50px);
+      margin-bottom: 28px;
+    }
+
+    p {
+      color: #5f6876;
+      font-size: 25px;
+      line-height: 1.9;
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .call-btn {
+      @include buttonStyle();
+      text-transform: none;
+      font-size: 22px;
+      padding: 16px 30px;
+    }
+  }
+
+  .questions-image {
+    width: 32%;
+
+    img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 0;
+    }
+  }
+}
+
+.footer {
+  background: $bgCol;
+  color: $white;
+  padding: 70px 0 28px;
+
+  .footer-wrapper {
+    @include flexBox(space-between, flex-start, row);
+    gap: 50px;
+    margin-bottom: 40px;
+  }
+
+  .footer-logo {
+    span {
+      color: $white;
+    }
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 80px;
+  }
+
+  .footer-col {
+    h4 {
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    a {
+      display: block;
+      color: #d7e3ef;
+      margin-bottom: 12px;
+      font-size: 15px;
+      transition: 0.3s;
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  .footer-bottom {
+    @include flexBox(space-between, center, row);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 22px;
+
+    p {
+      color: #d7e3ef;
+      font-size: 14px;
+    }
+
+    .socials {
+      @include flexBox(center, center, row);
+      gap: 12px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    .hero-text {
+      h1 {
+        font-size: 54px;
+      }
+
+      p,
+      .trusted p {
+        font-size: 18px;
+      }
+
+      .trusted .brands span {
+        font-size: 22px;
+      }
+    }
+
+    .hero-image {
+      .circle-bg {
+        width: 480px;
+        height: 480px;
+      }
+    }
+  }
+
+  .services {
+    .services-text h2,
+    .stats h2,
+    .testimonials h2,
+    .questions .questions-text h2 {
+      font-size: 40px;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .menu {
+    display: none;
+  }
+
+  .hero .hero-wrapper,
+  .services .services-wrapper,
+  .questions .questions-wrapper,
+  .footer .footer-wrapper,
+  .footer .footer-bottom {
+    flex-direction: column;
+  }
+
+  .hero {
+    .hero-text,
+    .hero-image {
+      width: 100%;
+    }
+
+    .hero-image {
+      min-height: auto;
+
+      .circle-bg {
+        width: 100%;
+        max-width: 500px;
+        height: 500px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      img {
+        width: 320px;
+      }
+
+      .person-card {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 10px;
+      }
+    }
+  }
+
+  .services {
+    .services-text,
+    .services-cards {
+      width: 100%;
+    }
+  }
+
+  .services .services-cards,
+  .testimonials .testimonial-grid,
+  .footer .footer-links {
+    grid-template-columns: 1fr;
+  }
+
+  .stats .stats-grid {
+    flex-direction: column;
+  }
+
+  .questions {
+    .questions-text,
+    .questions-image {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .hero .hero-text h1 {
+    font-size: 40px;
+  }
+
+  .services .services-text h2,
+  .stats h2,
+  .testimonials h2,
+  .questions .questions-text h2 {
+    font-size: 34px;
+  }
+
+  .services .services-text p,
+  .questions .questions-text p {
+    font-size: 18px;
+  }
+
+  .hero .hero-text p {
+    font-size: 17px;
+  }
+
+  .hero .hero-image .person-card {
+    width: 220px;
+
+    h4 {
+      font-size: 20px;
+    }
+  }
+}
